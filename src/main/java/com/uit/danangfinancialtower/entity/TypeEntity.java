@@ -20,5 +20,4 @@ public class TypeEntity {
     private Long id;
 
     private String typeName;
-
 }
