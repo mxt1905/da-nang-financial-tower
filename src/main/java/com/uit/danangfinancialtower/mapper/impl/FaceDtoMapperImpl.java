@@ -28,7 +28,8 @@ public class FaceDtoMapperImpl implements FaceDtoMapper {
         if (Objects.isNull(entity))
             return null;
         FaceDto dto = new FaceDto();
-        Double[][] rings = new Double[entity.getNodes().size()][];
+        Double[][] rings;
+        rings = new Double[entity.getNodes().size()][];
         int length = entity.getNodes().size();
         for (int i = 0; i < length; i++)
             rings[i] = nodeDtoMapper.toDtoArray(entity.getNodes().get(i));

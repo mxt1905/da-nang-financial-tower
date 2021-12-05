@@ -12,5 +12,4 @@ public class DaNangFinancialTowerApplication {
     public static void main(String[] args) {
         SpringApplication.run(DaNangFinancialTowerApplication.class, args);
     }
-
 }
