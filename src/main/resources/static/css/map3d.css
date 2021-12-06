@@ -22,3 +22,21 @@ html, body, #viewDiv {
     cursor: pointer;
     background-size: 20px;
 }
+
+#menu {
+    padding: 0.8em;
+    max-width: 250px;
+}
+
+#slice-container {
+    width: inherit;
+    max-width: 228px;
+}
+
+#slice-option {
+    margin: 0 15px;
+}
+
+#slice-option > button {
+    margin-bottom: 15px;
+}
