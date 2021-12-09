@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tòa nhà hành chính Đà Nẵng</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"/>
+    <link rel="icon" href="images/logo-dn.png"/>
+    <style>
+             /* Style for scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      /* Style  */
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box !important;
+      }
+
+      .img-cover {
+        background: url(./images/cover2.jpg);
+        height: 100vh;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .filter-img-cover {
+        background-image: linear-gradient(to top, #00111981, #00111900);
+        width: 100%;
+        height: 100%;
+      }
+
+      .bg-dark-cover {
+        background-color: #0011190e !important;
+      }
+
+      .nav-link {
+        color: #ffffffb2 !important;
+      }
+
+      .nav-link-active {
+        color: #ffffff !important;
+      }
+
+      .my-button {
+        color: #ffffff !important;
+        border: 2px solid #ffffff;
+        border-radius: 0px;
+        background-color: #00111900;
+      }
+
+      .my-button:hover {
+        color: #ffffff !important;
+        background-color: #00111998 !important;
+      }
+
+      .card {
+        padding: 2rem;
+        margin: 1rem;
+        max-width: 250px;
+        border-radius: 1rem;
+        box-shadow: 0px 0px 2px #ffffff;
+      }
+
+      .card:hover {
+        cursor: pointer;
+        box-shadow: 0px 0px 10px #ffffff;
+      }
+
+      .card-img-top {
+        width: 50%;
+        margin: auto;
+      }
+
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid p-0">
+    <div class="row w-100 m-0" style="position: absolute">
+        <div class="col-sm-12 p-0">
+            <nav
+                    class="navbar navbar-expand-lg navbar-light bg-dark-cover"
+                    style="padding: 0.5rem 4rem"
+            >
+                <a class="navbar-brand" href="/"
+                ><img
+                        src="images/logo-dn.png"
+                        style="width: 48px; border-radius: 50%"
+                /></a>
+                <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link nav-link-active" href="#"
+                            >Trang chủ <span class="sr-only">(current)</span></a
+                            >
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ban-do-3d.html">Bản đồ 3D</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a
+                                    class="nav-link"
+                                    href="/appointment.html"
+                                    tabindex="-1"
+                                    aria-disabled="true"
+                            >Đặt lịch hẹn</a
+                            >
+                        </li>
+
+                        <li class="nav-item">
+                            <a
+                                    class="nav-link"
+                                    href="/event.html"
+                                    tabindex="-1"
+                                    aria-disabled="true"
+                            >Sự kiện</a
+                            >
+                        </li>
+                    </ul>
+                    <a href="/login.html" class="btn my-button my-2 my-sm-0">
+                        Đăng nhập
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row p-0 m-0">
+        <div class="img-cover">
+            <div
+                    class="filter-img-cover"
+                    style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              padding: 128px;
+            "
+            >
+                <h1
+                        style="color: #ffffff; font-size: 10vw; text-align: center"
+                        class="m-3"
+                >
+                    ĐÀ NẴNG
+                </h1>
+                <p
+                        class="text-center text-white"
+                        style="color: #ffffff; font-size: 1.5vw; padding: 0 20%"
+                >
+                    Đà Nẵng là một thành phố trực thuộc trung ương,
+                    <br/>nằm trong vùng Duyên hải Nam Trung Bộ Việt Nam, <br/>là
+                    thành phố trung tâm và lớn nhất khu vực miền Trung - Tây Nguyên.
+                </p>
+                <button
+                        style="
+                background-color: #00111900;
+                border: 2px solid #ffffff;
+                padding: 0.5rem 1rem;
+                color: #ffffff;
+                font-size: 24px;
+              "
+                        class="btn my-button"
+                >
+                    KHÁM PHÁ NGAY
+                </button>
+            </div>
+        </div>
+
+        <div class="col-sm-12 p-5 pb-0 text-center">
+            <h1 class="mb-5">Đà Nẵng?</h1>
+            <p class="text-justify pl-5 pr-5" style="font-size: 1.2rem">
+                <i>Thành phố Đà Nẵng</i> là thành phố tổng hợp đa ngành, đa lĩnh
+                vực; trung tâm chính trị - kinh tế - xã hội với vai trò là trung tâm
+                công nghiệp, tài chính, du lịch, dịch vụ, văn hóa, giáo dục - đào
+                tạo, y tế chất lượng cao, khoa học - công nghệ, khởi nghiệp, đổi mới
+                sáng tạo của khu vực Miền Trung - Tây Nguyên và cả nước; trung tâm
+                tổ chức các sự kiện tầm khu vực và quốc tế.
+                <i>Thành phố Đà Nẵng</i> đóng vai trò hạt nhân, quan trọng trong
+                Vùng kinh tế trọng điểm miền Trung, đồng thời cũng là một trong 5
+                thành phố trực thuộc Trung ương ở Việt Nam, đô thị loại I, trung tâm
+                cấp quốc gia, cùng với Hải Phòng và Cần Thơ.
+            </p>
+            <p class="text-justify pl-5 pr-5" style="font-size: 1.2rem">
+                Đà Nẵng nằm ở vị trí trung độ của Việt Nam, có vị trí trọng yếu cả
+                về kinh tế - xã hội và quốc phòng - an ninh của khu vực Miền Trung -
+                Tây Nguyên và cả nước; là đô thị biển và đầu mối giao thông rất quan
+                trọng về đường bộ, đường sắt, đường biển và đường hàng không. Trong
+                những năm gần đây, Đà Nẵng tích cực đầu tư xây dựng cơ sở hạ tầng,
+                cải thiện môi trường, nâng cao an sinh xã hội và được coi là "Thành
+                phố đáng sống nhất Việt Nam". Năm 2018, Đà Nẵng được chọn đại diện
+                cho Việt Nam lọt vào Top 10 Địa điểm Tốt nhất để Sống ở Nước ngoài
+                do Tạp chí Du lịch Live and Invest Overseas (LIO) bình chọn.
+            </p>
+            <iframe
+                    class="p-3"
+                    width="956"
+                    height="538"
+                    src="https://www.youtube.com/embed/o5-tIj94VLE"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+            ></iframe>
+        </div>
+
+        <div
+                class="col-sm-12 p-5 text-center"
+                style="
+            background-image: url('./images/da-nang/da-nang.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          "
+        >
+            <div class="row">
+                <div
+                        class="col-lg-4 d-flex justify-content-center align-items-center"
+                >
+                    <a href="/ban-do-3d.html" class="text-decoration-none text-dark">
+                        <div class="card">
+                            <img
+                                    class="card-img-top"
+                                    src="images/3d.png"
+                                    alt="Xem hình ảnh 3D"
+                            />
+                            <div class="card-body">
+                                <h5 class="card-text">Xem hình ảnh 3D</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div
+                        class="col-lg-4 d-flex justify-content-center align-items-center"
+                >
+                    <a href="/ban-do-3d.html" class="text-decoration-none text-dark">
+                        <div class="card">
+                            <img
+                                    class="card-img-top"
+                                    src="images/calendar.png"
+                                    alt="Đặt lịch hẹn"
+                            />
+                            <div class="card-body">
+                                <h5 class="card-text">Đặt lịch hẹn</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div
+                        class="col-lg-4 d-flex justify-content-center align-items-center"
+                >
+                    <a href="/ban-do-3d.html" class="text-decoration-none text-dark">
+                        <div class="card">
+                            <img
+                                    class="card-img-top"
+                                    src="images/event.png "
+                                    alt="Sự kiện"
+                            />
+                            <div class="card-body">
+                                <h5 class="card-text">Sự kiện</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 p-5 text-center" style="font-size: 1.2rem">
+            <h1>Thông tin thêm về Đà Nẵng</h1>
+            <div class="row p-5 align-items-center">
+                <div
+                        class="col-md-6"
+                        style="height: 500px; width: 100%; overflow: hidden"
+                >
+                    <img
+                            src="images/da-nang/toa-nha-dn-2.jpg"
+                            style="height: 500px; width: 100%; object-fit: cover"
+                    />
+                </div>
+                <div class="col-md-6">
+                    Thiên nhiên ưu đãi cho Đà Nẵng nằm giữa vùng kề cận ba di sản văn
+                    hoá thế giới: Cố đô Huế, phố cổ Hội An và thánh địa Mỹ Sơn, chính
+                    vị trí này đã làm nổi rõ vai trò của thành phố Đà Nẵng trong khu
+                    vực, đó là nơi đón tiếp, phục vụ, trung chuyển khách. Không chỉ là
+                    tâm điểm của 3 di sản thế giới, thành phố Đà Nẵng còn có nhiều
+                    danh thắng tuyệt đẹp đến nỗi du khách khó có thể nào quên được sau
+                    khi đã đến thăm thành phố này. Đà Nẵng có đèo Hải Vân cheo leo,
+                    hiểm trở, được mệnh danh là "Thiên hạ đệ nhất hùng quan". Có bán
+                    đảo Sơn Trà là điểm hẹn lý tưởng cho du khách. Dưới chân Sơn Trà
+                    có Suối Đá, Bãi Bụt, Bãi Rạng, Bãi Bắc, Bãi Nồm… cho du khách cảm
+                    giác thú vị khi chìm đắm trong vẻ huy hoàng bình minh và sự lặng
+                    lẽ hoàng hôn của một vùng sơn thuỷ hữu tình. Có khu du lịch sinh
+                    thái Bà Nà - Suối Mơ được nhiều người ví là Đà Lạt, Sapa của miền
+                    Trung. Có Ngũ Hành Sơn huyền thoại là "Nam Thiên danh thắng".
+                </div>
+            </div>
+            <div class="row p-5 align-items-center">
+                <div class="col-md-6">
+                    Nói đến Đà Nẵng không thể không nhắc đến dòng sông Hàn thơ mộng và
+                    cầu Sông Hàn - cây cầu quay đầu tiên ở Việt Nam - niềm tự hào của
+                    người dân thành phố. Cầu Sông Hàn là biểu tượng cho sức sống mới,
+                    là khát vọng đi lên của thành phố được xây dựng bằng sự đóng góp
+                    của mọi người dân. Dường như mọi vẻ đẹp nên thơ của dòng sông Hàn
+                    chỉ được bộc lộ một cách hoàn mỹ nhất trong không gian cầu Sông
+                    Hàn lộng gió và mát rượi. Cầu Sông Hàn không chỉ tạo thêm thuận
+                    lợi cho giao thông vận tải, du lịch, khơi dậy tiềm năng kinh tế
+                    của một vùng đất rộng lớn ở phía đông thành phố mà còn là một dấu
+                    ấn văn hoá của người Đà Nẵng hôm nay gửi lại muôn đời con cháu mai
+                    sau.
+                </div>
+                <div
+                        class="col-md-6"
+                        style="height: 500px; width: 100%; overflow: hidden"
+                >
+                    <img
+                            src="images/da-nang/cau-rong.jpg"
+                            style="height: 500px; width: 100%; object-fit: cover"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <hr
+                style="
+            background-color: #001119;
+            height: 2px;
+            width: 75%;
+            margin: auto;
+          "
+        />
+
+        <div class="col-sm-12 p-5 text-center">
+            <h1 class="mb-5">Một số hình ảnh khác của Đà Nẵng</h1>
+            <img
+                    src="images/da-nang/da-nang.jpg"
+                    class="m-1"
+                    style="width: 450px; height: 300px; object-fit: cover"
+            />
+            <img
+                    src="images/da-nang/da-nang-2.jpg"
+                    class="m-1"
+                    style="width: 450px; height: 300px; object-fit: cover"
+            />
+            <img
+                    src="images/da-nang/da-nang-3.jpg"
+                    class="m-1"
+                    style="width: 450px; height: 300px; object-fit: cover"
+            />
+            <img
+                    src="images/da-nang/da-nang-4.jpg"
+                    class="m-1"
+                    style="width: 450px; height: 300px; object-fit: cover"
+            />
+            <img
+                    src="images/da-nang/da-nang-5.jpg"
+                    class="m-1"
+                    style="width: 450px; height: 300px; object-fit: cover"
+            />
+        </div>
+    </div>
+
+    <div
+            class="
+          container-fluid
+          m-0
+          d-flex
+          flex-column
+          align-items-center
+          text-white
+          p-0
+        "
+            style="background-color: #001119"
+    >
+        <div class="row mt-4">
+            <img
+                    src="images/logo-dn.png"
+                    style="border-radius: 50%; width: 75px"
+            />
+        </div>
+        <div class="row m-4 w-75">
+            <div class="col-lg-6">
+                <h4>Lorem ipsum</h4>
+                <hr style="background-color: #ffffff"/>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                    aliquid dolorem nisi illo quis voluptatibus, tempora quaerat ab
+                    excepturi recusandae.
+                </p>
+                <img
+                        src="images/facebook-logo.png"
+                        style="width: 32px"
+                        class="m-1"
+                />
+                <img
+                        src="images/instagram-logo.png"
+                        style="width: 32px"
+                        class="m-1"
+                />
+                <img
+                        src="images/youtube-logo.png"
+                        style="width: 32px"
+                        class="m-1"
+                />
+                <img
+                        src="images/twitter-logo.png"
+                        style="width: 32px"
+                        class="m-1"
+                />
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Lorem ipsum</h4>
+                        <hr style="background-color: #ffffff"/>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                            ab excepturi recusandae.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Lorem ipsum</h4>
+                        <hr style="background-color: #ffffff"/>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                            ab excepturi recusandae.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Lorem ipsum</h4>
+                        <hr style="background-color: #ffffff"/>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                            ab excepturi recusandae.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row w-100" style="background-color: #012535">
+            <p class="w-100 text-center m-0 p-2">
+                © Copyright by 4T team <br/>_ School Project _
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>

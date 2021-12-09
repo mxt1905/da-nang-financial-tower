@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{../css/create.css}" rel="stylesheet"/>
+</head>
+<body>
+<h1>Create event page</h1>
+<form th:action="@{../create}" th:object="${eventDto}" method="post">
+    <input th:field="*{id}" type="text"
+           placeholder="Enter id"
+           required oninvalid="this.setCustomValidity('Enter event id')"
+           class="form-control mb-4 col-4">
+    <input th:field="*{name}" type="text"
+           placeholder="Enter name"
+           required
+           oninvalid="this.setCustomValidity('Enter event name')"
+           class="form-control mb-4 col-4">
+    <button type="submit" class="btn btn-info col-2"> Create Event</button>
+</form>
+</body>
+</html>
