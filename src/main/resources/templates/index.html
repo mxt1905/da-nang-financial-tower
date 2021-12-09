@@ -10,216 +10,55 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous"/>
     <link rel="icon" href="images/logo-dn.png"/>
-    <style>
-             /* Style for scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: #888;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-      }
-
-      /* Style  */
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box !important;
-      }
-
-      .img-cover {
-        background: url(./images/cover2.jpg);
-        height: 100vh;
-        width: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      .filter-img-cover {
-        background-image: linear-gradient(to top, #00111981, #00111900);
-        width: 100%;
-        height: 100%;
-      }
-
-      .bg-dark-cover {
-        background-color: #0011190e !important;
-      }
-
-      .nav-link {
-        color: #ffffffb2 !important;
-      }
-
-      .nav-link-active {
-        color: #ffffff !important;
-      }
-
-      .my-button {
-        color: #ffffff !important;
-        border: 2px solid #ffffff;
-        border-radius: 0px;
-        background-color: #00111900;
-      }
-
-      .my-button:hover {
-        color: #ffffff !important;
-        background-color: #00111998 !important;
-      }
-
-      .card {
-        padding: 2rem;
-        margin: 1rem;
-        max-width: 250px;
-        border-radius: 1rem;
-        box-shadow: 0px 0px 2px #ffffff;
-      }
-
-      .card:hover {
-        cursor: pointer;
-        box-shadow: 0px 0px 10px #ffffff;
-      }
-
-      .card-img-top {
-        width: 50%;
-        margin: auto;
-      }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </style>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <div class="container-fluid p-0">
     <div class="row w-100 m-0" style="position: absolute">
         <div class="col-sm-12 p-0">
-            <nav
-                    class="navbar navbar-expand-lg navbar-light bg-dark-cover"
-                    style="padding: 0.5rem 4rem"
-            >
-                <a class="navbar-brand" href="/"
-                ><img
-                        src="images/logo-dn.png"
-                        style="width: 48px; border-radius: 50%"
-                /></a>
-                <button
-                        class="navbar-toggler"
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark-cover"
+                 style="padding: 0.5rem 4rem">
+                <a class="navbar-brand" href="/">
+                    <img src="images/logo-dn.png"
+                         style="width: 48px; border-radius: 50%"/>
+                </a>
+                <button class="navbar-toggler"
                         type="button"
                         data-toggle="collapse"
                         data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent"
                         aria-expanded="false"
-                        aria-label="Toggle navigation"
-                >
+                        aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link nav-link-active" href="#"
-                            >Trang chủ <span class="sr-only">(current)</span></a
-                            >
+                            <a class="nav-link nav-link-active"
+                               href="#">Trang chủ
+                                <span class="sr-only">(current)
+                                </span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ban-do-3d.html">Bản đồ 3D
+                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/ban-do-3d.html">Bản đồ 3D</a>
+                            <a class="nav-link"
+                               href="/appointment.html"
+                               tabindex="-1"
+                               aria-disabled="true">Đặt lịch hẹn
+                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a
-                                    class="nav-link"
-                                    href="/appointment.html"
-                                    tabindex="-1"
-                                    aria-disabled="true"
-                            >Đặt lịch hẹn</a
-                            >
-                        </li>
-
-                        <li class="nav-item">
-                            <a
-                                    class="nav-link"
-                                    href="/event.html"
-                                    tabindex="-1"
-                                    aria-disabled="true"
-                            >Sự kiện</a
-                            >
+                            <a class="nav-link"
+                               href="/event.html"
+                               tabindex="-1"
+                               aria-disabled="true">Sự kiện
+                            </a>
                         </li>
                     </ul>
                     <a href="/login.html" class="btn my-button my-2 my-sm-0">
