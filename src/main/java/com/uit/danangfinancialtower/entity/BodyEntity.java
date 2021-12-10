@@ -1,6 +1,5 @@
 package com.uit.danangfinancialtower.entity;
 
-import com.uit.danangfinancialtower.constants.TableConst.ColumnName;
 import com.uit.danangfinancialtower.constants.TableConst.TableName;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,21 +17,15 @@ import java.util.List;
 @Setter
 public class BodyEntity {
 
+    private static final String BODY_MAP = "body";
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String bodyName;
 
-    private String bodyAddress;
+    private String bodyDescription;
 
-    private String bodyDesc;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-        name = TableName.BODY_FACE,
-        joinColumns = @JoinColumn(name = ColumnName.BODY_ID),
-        inverseJoinColumns = @JoinColumn(name = ColumnName.FACE_ID)
-    )
+    @OneToMany(mappedBy = BODY_MAP, fetch = FetchType.LAZY)
     private List<FaceEntity> faces = new ArrayList<>();
 }

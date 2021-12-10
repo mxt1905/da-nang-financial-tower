@@ -22,14 +22,18 @@ public class FaceEntity {
     @GeneratedValue
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = ColumnName.TYPE_ID)
     private TypeEntity type;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = ColumnName.SYMBOL_ID)
     private SymbolEntity symbol;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = ColumnName.BODY_ID)
+    private BodyEntity body;
+    
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = TableName.NODE_FACE,
@@ -37,4 +41,6 @@ public class FaceEntity {
         inverseJoinColumns = @JoinColumn(name = ColumnName.NODE_ID)
     )
     private List<NodeEntity> nodes = new ArrayList<>();
+
+
 }

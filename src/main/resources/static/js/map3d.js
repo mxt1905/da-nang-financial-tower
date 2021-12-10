@@ -1,294 +1,247 @@
-require([
-	"esri/Map",
-	"esri/views/SceneView",
-	"esri/layers/GeoJSONLayer",
-	"esri/layers/SceneLayer",
-	"esri/layers/GraphicsLayer",
-	"esri/Graphic",
-	"esri/request",
-	"esri/widgets/Slice",
-    "esri/widgets/Slice/SlicePlane",
-    "esri/widgets/LayerList",
-    "esri/core/Collection"
-], function (
-	Map,
-	SceneView,
-	GeoJSONLayer,
-	SceneLayer,
-	GraphicsLayer,
-	Graphic,
-	esriRequest,
-	Slice,
-	SlicePlane,
-	LayerList,
-	Collection
-) {
-	var createGraphic = function (data) {
-		return new Graphic({
-			geometry: data,
-			type: "simple",
-			symbol: {
-				type: "polygon-3d",
-				symbolLayers: [
-					{
-						type: "extrude",
-						size: 0.5,
-						material: {
-							color: [192, 192, 192, 1],
-							outline: {
-								color: [255, 255, 255],
-								width: 10,
-							},
-						},
-					},
-				],
-			},
-		});
-	};
+      require([
+        'esri/Map',
+        'esri/views/SceneView',
+        'esri/layers/SceneLayer',
+        'esri/layers/GraphicsLayer',
+        'esri/Graphic',
+        'esri/request',
+      ], function (
+        Map,
+        SceneView,
+        SceneLayer,
+        GraphicsLayer,
+        Graphic,
+        esriRequest
+      ) {
+        const host = 'http://localhost:8080'
+        const createGraphicPolygon = (data,{ size, colorMaterial, haveOutline = true, haveEdges = false }) => {
+          return new Graphic({
+            geometry: data,
+            type: 'simple',
+            symbol: {
+              type: 'polygon-3d',
+              symbolLayers: [
+                {
+                  type: 'extrude',
+                  size: size,
+                  material: {
+                    color: colorMaterial,
+                    outline: {
+                      color: haveOutline ? [255, 255, 255] : [255, 255, 255, 0],
+                      width: 10,
+                    },
+                  },
+                  edges: {
+                    type: 'solid',
+                    color: haveEdges ? [50, 50, 50, 0.5] : [50, 50, 50, 0],
+                  },
+                },
+              ],
+            },
+          });
+        };
 
-	var createGraphicPillar = function (data) {
-		return new Graphic({
-			geometry: data,
-			type: "simple",
-			symbol: {
-				type: "polygon-3d",
-				symbolLayers: [
-					{
-						type: "extrude",
-						size: 4.5,
-						material: {
-							color: [248, 248, 255, 1],
-							outline: {
-								color: [255, 255, 255],
-								width: 10,
-							},
-						},
-					},
-				],
-			},
-		});
-	};
+        const createGraphicLine = (data, { width }) => {
+          return new Graphic({
+            geometry: data,
+            type: 'simple',
+            symbol: {
+              type: 'line-3d',
+              symbolLayers: [{
+                  type: 'path',
+                  profile: 'circle',
+                  width: width,
+                  material: { 
+                    color: [248, 248, 255] 
+                  },
+                },
+              ],
+            },
+          });
+        };
 
-	var createGraphicRoom = function (data) {
-		return new Graphic({
-			geometry: data,
-			type: "simple",
-			symbol: {
-				type: "polygon-3d",
-				symbolLayers: [
-					{
-						type: "extrude",
-						size: 5,
-						material: {
-							color: [248, 248, 255, 1],
-							outline: {
-								color: [255, 255, 255],
-								width: 10,
-							},
-						},
-					},
-				],
-			},
-		});
-	};
+        var createGraphicFloor5_34_Glass = function (data, option = {}) {
+          return new Graphic({
+            geometry: data,
+            symbol: data.symbol,
+            attributes: data,
+            popupTemplate: data.popupTemplate,
+            size: 20,
+          });
+        };
 
-	var createGraphicGlass = function (data) {
-		return new Graphic({
-			geometry: data,
-			symbol: data.symbol,
-			attributes: data,
-			popupTemplate: data.popupTemplate,
-			size: 20,
-		});
-	};
+        const json_options = {
+          query: {
+            f: 'json',
+          },
+          responseType: 'json',
+        };
+        // File link = Request path
+        const polygonFileList = [
+//          {
+//            fileLink: '/entrance',
+//            option: {
+//              size: 14,
+//              colorMaterial: [177, 176, 199, 1],
+//            },
+//          },
+//          {
+//            fileLink: '/entrance_top',
+//            option: {
+//              size: 4.5,
+//              colorMaterial: [205, 133, 63, 1],
+//            },
+//          },
+//          {
+//            fileLink: '/entrance_columns',
+//            option: {
+//              size: 9,
+//              colorMaterial: [207, 207, 207, 1],
+//            },
+//          },
+          {
+            fileLink: '/eaves',
+            option: {
+              size: 0.5,
+              colorMaterial: [181, 181, 181, 1],
+            },
+          },
+//          {
+//            fileLink: '/floor_1_3_right',
+//            option: {
+//              size: 13.5,
+//              colorMaterial: [7, 58, 148, 0.8],
+//            },
+//          },
+//          {
+//            fileLink: '/floor_1_3_left',
+//            option: {
+//              size: 13.5,
+//              colorMaterial: [248, 248, 255, 1],
+//              haveOutline: false,
+//            },
+//          },
+//          {
+//            fileLink: '/floor_1_3_columns',
+//            option: {
+//              size: 14,
+//              colorMaterial: [241, 241, 249, 1],
+//              haveEdges: true,
+//            },
+//          },
+//          {
+//            fileLink: '/floor_2_3',
+//            option: {
+//              size: 9.5,
+//              colorMaterial: [205, 133, 63, 1],
+//            },
+//          },
+//          {
+//            fileLink: '/floor_2',
+//            option: {
+//              size: 5,
+//              colorMaterial: [248, 248, 255, 1],
+//            },
+//          },
+//          {
+//            fileLink: '/floor_1_3_roof',
+//            option: {
+//              size: 0.5,
+//              colorMaterial: [192, 192, 192],
+//            },
+//          },
+//          {
+//            fileLink: '/floor_roof_c',
+//            option: {
+//              size: 1,
+//              colorMaterial: [248, 248, 255],
+//              haveOutline: false,
+//            },
+//          },
+//          {
+//            fileLink: '/floor_4',
+//            option: {
+//              size: 1,
+//              colorMaterial: [248, 248, 255, 1],
+//            },
+//          },
+//          {
+//            fileLink: '/floor_4_columns',
+//            option: {
+//              size: 19.5,
+//              colorMaterial: [248, 248, 255, 1],
+//            },
+//          },
+//          {
+//            fileLink: '/floor_5_34',
+//            option: {
+//              size: 0.5,
+//              colorMaterial: [192, 192, 192, 1],
+//            },
+//          },
+        ];
 
-	var createGraphicSole = function (data) {
-		return new Graphic({
-			geometry: data,
-			type: "simple",
-			symbol: {
-				type: "polygon-3d",
-				symbolLayers: [
-					{
-						type: "extrude",
-						size: 12.5,
-						material: {
-							color: [248, 248, 255, 1],
-							outline: {
-								color: [255, 255, 255],
-								width: 10,
-							},
-						},
-					},
-				],
-			},
-		});
-	};
+//        const lineFileList = [
+//          {
+//            fileLink: '/line_columns',
+//            option: { width: 0.4 },
+//          },
+//          {
+//            fileLink: '/line',
+//            option: { width: 0.3 },
+//          },
+//        ];
+        // Vẽ nền
+        polygonFileList.forEach((polygon) => {
+          esriRequest(host + "/api/body/" + polygon.fileLink, json_options).then(function (response) {
+            var graphicsLayer = new GraphicsLayer();
+            console.log(response);
+            response.data.forEach(function (data) {
+              graphicsLayer.add(createGraphicPolygon(data, polygon.option));
+            });
+            map.add(graphicsLayer);
+          });
+        });
 
-	const json_options = {
-		query: {
-			f: "json",
-		},
-		responseType: "json",
-	};
-	// Vẽ nền
-	esriRequest("data.json", json_options).then(function (response) {
-		var graphicsLayer = new GraphicsLayer();
-		console.log(response);
-		response.data.forEach(function (data) {
-			graphicsLayer.add(createGraphic(data));
-		});
-		map.add(graphicsLayer);
-	});
-
-	//Vẽ cột
-//	esriRequest("data.pillar.json", json_options).then(function (response) {
-//		var graphicsLayer = new GraphicsLayer();
-//		console.log(response);
-//		response.data.forEach(function (data) {
-//			graphicsLayer.add(createGraphicPillar(data));
-//		});
-//		map.add(graphicsLayer);
-//	});
-
-	//Vẽ phòng
-//	esriRequest("data-room.json", json_options).then(function (response) {
-//		var graphicsLayer = new GraphicsLayer();
-//		console.log(response);
-//		response.data.forEach(function (data) {
-//			graphicsLayer.add(createGraphicRoom(data));
-//		});
-//		map.add(graphicsLayer);
-//	});
+        //Vẽ line
+//        lineFileList.forEach((line) => {
+//          esriRequest(host + line.fileLink, json_options).then(function (response) {
+//            var graphicsLayer = new GraphicsLayer();
+//            console.log(response);
+//            response.data.forEach(function (data) {
+//              graphicsLayer.add(createGraphicLine(data, line.option));
+//            });
+//            map.add(graphicsLayer);
+//          });
+//        });
 //
-//	esriRequest("data-sole.json", json_options).then(function (response) {
-//		var graphicsLayer = new GraphicsLayer();
-//		console.log(response);
-//		response.data.forEach(function (data) {
-//			graphicsLayer.add(createGraphicSole(data));
-//		});
-//		map.add(graphicsLayer);
-//	});
-	// Vẽ kính
-	esriRequest("http://localhost:8080/api/faces", json_options).then(function (response) {
-		var graphicsLayer = new GraphicsLayer();
-		console.log(response);
-		response.data.forEach(function (data) {
-			graphicsLayer.add(createGraphicGlass(data));
-		});
-		map.add(graphicsLayer);
-	});
-	// geojson layer
-	const geojsonLayer = new GeoJSONLayer({
-		url: "data.geojson",
-	});
+//        // Vẽ kính
+//        esriRequest(host + './data/floor_5-34_glass.json', json_options).then(
+//          function (response) {
+//            var graphicsLayer = new GraphicsLayer();
+//            console.log(response);
+//            response.data.forEach(function (data) {
+//              graphicsLayer.add(createGraphicFloor5_34_Glass(data));
+//            });
+//            map.add(graphicsLayer);
+//          }
+//        );
 
-	geojsonLayer.renderer = {
-		type: "simple",
-		symbol: {
-			type: "polygon-3d",
-			symbolLayers: [
-				{
-					type: "extrude",
-					size: 100.0,
-					material: {
-						color: "#7eadf7",
-					},
-				},
-			],
-		},
-	};
-	const map = new Map({
-		basemap: "topo-vector",
-		// ground: 'world-elevation',
-		layers: [], //end layers geojsonLayer
-	});
+        const map = new Map({
+          basemap: 'topo-vector',
+          // ground: 'world-elevation',
+          layers: [], //end layers geojsonLayer
+        });
 
-	const view = new SceneView({
-		container: "viewDiv",
-		map: map,
-		camera: {
-			position: [108.22288513183594, 16.071764175013556, 200],
-			heading: 0,
-			tilt: 80,
-		},
-	});
+        const view = new SceneView({
+          container: 'viewDiv',
+          map: map,
+          camera: {
+            position: [108.22288513183594, 16.071764175013556, 200],
+            heading: 0,
+            tilt: 80,
+          },
+        });
 
-	view.popup.defaultPopupTemplateEnabled = true;
-
-	const slice = new Slice({
-		view: view
-	});
-
-    view.ui.add(slice, {
-        position: "top-right"
-    });
-
-	const excludedLayers = [];
-	const sliceButton = document.getElementById("slice");
-	const resetPlaneBtn = document.getElementById("reset-plane-btn");
-	const clearPlaneBtn = document.getElementById("clear-plane-btn");
-	const sliceOptions = document.getElementById("slice-option");
-	const plane = new SlicePlane({
-		position: {
-			// position: [108.22288513183594, 16.071764175013556, 200],
-
-			latitude: 16.071764175013556,
-			longitude: 108.22288513183594,
-			z: 417.75,
-		},
-		tilt: 32.62,
-		width: 29,
-		height: 29,
-		heading: 0.46,
-	});
-
-	let sliceWidget = null;
-	let doorsLayer = null;
-	let sliceTiltEnabled = true;
-
-	view.ui.add("menu", "top-right");
-
-	resetPlaneBtn.addEventListener("click", () => {
-		document.getElementById("tilt-enabled").checked = true;
-		sliceTiltEnabled = true;
-		sliceWidget.viewModel.tiltEnabled = sliceTiltEnabled;
-		sliceWidget.viewModel.shape = plane;
-	});
-
-	clearPlaneBtn.addEventListener("click", () => {
-		slice.clear();
-	});
-
-	document.getElementById("tilt-enabled").addEventListener("change", (event) => {
-		sliceTiltEnabled = event.target.checked;
-		sliceWidget.viewModel.tiltEnabled = sliceTiltEnabled;
-	});
-
-	document.getElementById("color").addEventListener("change", (event) => {
-		if (event.target.checked) {
-			// A renderer can be set on a BuildingComponentSublayer
-			doorsLayer.renderer = {
-				type: "simple", // autocasts as new UniqueValueRenderer()
-				symbol: {
-					type: "mesh-3d", // autocasts as new MeshSymbol3D()
-					symbolLayers: [
-						{
-							type: "fill", // autocasts as new FillSymbol3DLayer()
-							material: {
-								color: "red",
-							},
-						},
-					],
-				},
-			};
-		} else {
-			doorsLayer.renderer = null;
-		}
-	});
-
-	// Add a layer list widget
-	const layerList = new LayerList({
-		view: view,
-	});
-});
+        view.popup.defaultPopupTemplateEnabled = true;
+      });
