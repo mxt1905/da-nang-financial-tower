@@ -158,7 +158,7 @@
 //              haveOutline: false,
 //            },
 //          },
-//          {
+          {
             fileLink: '/floor_4',
             option: {
               size: 1,
@@ -172,13 +172,13 @@
               colorMaterial: [248, 248, 255, 1],
             },
           },
-//          {
-//            fileLink: '/floor_5_34',
-//            option: {
-//              size: 0.5,
-//              colorMaterial: [192, 192, 192, 1],
-//            },
-//          },
+          {
+            fileLink: '/floor_5_34',
+            option: {
+              size: 0.5,
+              colorMaterial: [192, 192, 192, 1],
+            },
+          },
         ];
 
 //        const lineFileList = [
@@ -215,17 +215,17 @@
 //          });
 //        });
 //
-//        // Vẽ kính
-//        esriRequest(host + './data/floor_5-34_glass.json', json_options).then(
-//          function (response) {
-//            var graphicsLayer = new GraphicsLayer();
-//            console.log(response);
-//            response.data.forEach(function (data) {
-//              graphicsLayer.add(createGraphicFloor5_34_Glass(data));
-//            });
-//            map.add(graphicsLayer);
-//          }
-//        );
+        // Vẽ kính
+        esriRequest(host + '/api/body/floor_5_34_glass', json_options).then(
+          function (response) {
+            var graphicsLayer = new GraphicsLayer();
+            console.log(response);
+            response.data.forEach(function (data) {
+              graphicsLayer.add(createGraphicFloor5_34_Glass(data));
+            });
+            map.add(graphicsLayer);
+          }
+        );
 
         const map = new Map({
           basemap: 'topo-vector',
