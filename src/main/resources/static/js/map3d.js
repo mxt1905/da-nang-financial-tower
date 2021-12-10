@@ -106,13 +106,13 @@
               colorMaterial: [181, 181, 181, 1],
             },
           },
-//          {
-//            fileLink: '/floor_1_3_right',
-//            option: {
-//              size: 13.5,
-//              colorMaterial: [7, 58, 148, 0.8],
-//            },
-//          },
+          {
+            fileLink: '/floor_1_3_right',
+            option: {
+              size: 13.5,
+              colorMaterial: [7, 58, 148, 0.8],
+            },
+          },
           {
             fileLink: '/floor_1_3_left',
             option: {
@@ -143,13 +143,13 @@
 //              colorMaterial: [248, 248, 255, 1],
 //            },
 //          },
-//          {
-//            fileLink: '/floor_1_3_roof',
-//            option: {
-//              size: 0.5,
-//              colorMaterial: [192, 192, 192],
-//            },
-//          },
+          {
+            fileLink: '/floor_1_3_roof',
+            option: {
+              size: 0.5,
+              colorMaterial: [192, 192, 192],
+            },
+          },
 //          {
 //            fileLink: '/floor_roof_c',
 //            option: {
