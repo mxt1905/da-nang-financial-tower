@@ -78,27 +78,27 @@
         };
         // File link = Request path
         const polygonFileList = [
-//          {
-//            fileLink: '/entrance',
-//            option: {
-//              size: 14,
-//              colorMaterial: [177, 176, 199, 1],
-//            },
-//          },
-//          {
-//            fileLink: '/entrance_top',
-//            option: {
-//              size: 4.5,
-//              colorMaterial: [205, 133, 63, 1],
-//            },
-//          },
-//          {
-//            fileLink: '/entrance_columns',
-//            option: {
-//              size: 9,
-//              colorMaterial: [207, 207, 207, 1],
-//            },
-//          },
+          {
+            fileLink: '/entrance',
+            option: {
+              size: 14,
+              colorMaterial: [177, 176, 199, 1],
+            },
+          },
+          {
+            fileLink: '/entrance_top',
+            option: {
+              size: 4.5,
+              colorMaterial: [205, 133, 63, 1],
+            },
+          },
+          {
+            fileLink: '/entrance_columns',
+            option: {
+              size: 9,
+              colorMaterial: [207, 207, 207, 1],
+            },
+          },
           {
             fileLink: '/eaves',
             option: {
@@ -113,22 +113,22 @@
 //              colorMaterial: [7, 58, 148, 0.8],
 //            },
 //          },
-//          {
-//            fileLink: '/floor_1_3_left',
-//            option: {
-//              size: 13.5,
-//              colorMaterial: [248, 248, 255, 1],
-//              haveOutline: false,
-//            },
-//          },
-//          {
-//            fileLink: '/floor_1_3_columns',
-//            option: {
-//              size: 14,
-//              colorMaterial: [241, 241, 249, 1],
-//              haveEdges: true,
-//            },
-//          },
+          {
+            fileLink: '/floor_1_3_left',
+            option: {
+              size: 13.5,
+              colorMaterial: [248, 248, 255, 1],
+              haveOutline: false,
+            },
+          },
+          {
+            fileLink: '/floor_1_3_columns',
+            option: {
+              size: 14,
+              colorMaterial: [241, 241, 249, 1],
+              haveEdges: true,
+            },
+          },
 //          {
 //            fileLink: '/floor_2_3',
 //            option: {
