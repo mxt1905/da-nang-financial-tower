@@ -129,20 +129,20 @@
               haveEdges: true,
             },
           },
-//          {
-//            fileLink: '/floor_2_3',
-//            option: {
-//              size: 9.5,
-//              colorMaterial: [205, 133, 63, 1],
-//            },
-//          },
-//          {
-//            fileLink: '/floor_2',
-//            option: {
-//              size: 5,
-//              colorMaterial: [248, 248, 255, 1],
-//            },
-//          },
+          {
+            fileLink: '/floor_2_3',
+            option: {
+              size: 9.5,
+              colorMaterial: [205, 133, 63, 1],
+            },
+          },
+          {
+            fileLink: '/floor_2',
+            option: {
+              size: 5,
+              colorMaterial: [248, 248, 255, 1],
+            },
+          },
           {
             fileLink: '/floor_1_3_roof',
             option: {
