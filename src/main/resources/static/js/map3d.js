@@ -159,19 +159,19 @@
 //            },
 //          },
 //          {
-//            fileLink: '/floor_4',
-//            option: {
-//              size: 1,
-//              colorMaterial: [248, 248, 255, 1],
-//            },
-//          },
-//          {
-//            fileLink: '/floor_4_columns',
-//            option: {
-//              size: 19.5,
-//              colorMaterial: [248, 248, 255, 1],
-//            },
-//          },
+            fileLink: '/floor_4',
+            option: {
+              size: 1,
+              colorMaterial: [248, 248, 255, 1],
+            },
+          },
+          {
+            fileLink: '/floor_4_columns',
+            option: {
+              size: 19.5,
+              colorMaterial: [248, 248, 255, 1],
+            },
+          },
 //          {
 //            fileLink: '/floor_5_34',
 //            option: {
