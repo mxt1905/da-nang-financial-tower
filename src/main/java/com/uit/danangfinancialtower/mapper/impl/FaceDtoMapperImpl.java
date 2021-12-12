@@ -1,6 +1,8 @@
 package com.uit.danangfinancialtower.mapper.impl;
 
 import com.uit.danangfinancialtower.dto.FaceDto;
+import com.uit.danangfinancialtower.dto.FacePolygonDto;
+import com.uit.danangfinancialtower.dto.FacePolylineDto;
 import com.uit.danangfinancialtower.entity.FaceEntity;
 import com.uit.danangfinancialtower.mapper.FaceDtoMapper;
 import com.uit.danangfinancialtower.mapper.NodeDtoMapper;
@@ -27,15 +29,26 @@ public class FaceDtoMapperImpl implements FaceDtoMapper {
     public FaceDto toDto(FaceEntity entity) {
         if (Objects.isNull(entity))
             return null;
-        FaceDto dto = new FaceDto();
-        Double[][] rings;
-        rings = new Double[entity.getNodes().size()][];
+        Double[][] coordinates;
+        coordinates = new Double[entity.getNodes().size()][];
         int length = entity.getNodes().size();
         for (int i = 0; i < length; i++)
-            rings[i] = nodeDtoMapper.toDtoArray(entity.getNodes().get(i));
+            coordinates[i] = nodeDtoMapper.toDtoArray(entity.getNodes().get(i));
+        FaceDto dto;
+        //        if (entity.getType().getTypeName().equals("polygon")) {
+        //            dto = new FacePolygonDto();
+        //        } else if (entity.getType().getTypeName().equals("polyline")) {
+        //            dto = new FacePolylineDto();
+        //        }
+
+        if ("polyline".equals(entity.getType().getTypeName())) {
+            dto = new FacePolylineDto();
+        } else {
+            dto = new FacePolygonDto();
+        }
         dto.setType(entity.getType().getTypeName())
             .setSymbol(symbolDtoMapper.toDto(entity.getSymbol()))
-            .setRings(rings);
+            .setCoordinates(coordinates);
         return dto;
     }
 

@@ -8,9 +8,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class FaceDto {
+public abstract class FaceDto {
 
     private String type;
     private SymbolDto symbol;
-    private Double[][] rings;
+
+    public abstract FaceDto setCoordinates(Double[][] coordinates);
 }
