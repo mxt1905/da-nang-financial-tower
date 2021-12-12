@@ -13,8 +13,7 @@ public class FacePolylineDto extends FaceDto {
     private Double[][] paths;
 
     @Override
-    public FaceDto setCoordinates(Double[][] coordinates) {
+    public void setCoordinates(Double[][] coordinates) {
         paths = coordinates;
-        return this;
     }
 }

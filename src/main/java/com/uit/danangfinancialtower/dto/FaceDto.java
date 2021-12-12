@@ -13,5 +13,5 @@ public abstract class FaceDto {
     private String type;
     private SymbolDto symbol;
 
-    public abstract FaceDto setCoordinates(Double[][] coordinates);
+    public abstract void setCoordinates(Double[][] coordinates);
 }

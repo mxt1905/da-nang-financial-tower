@@ -13,8 +13,7 @@ public class FacePolygonDto extends FaceDto {
     private Double[][] rings;
 
     @Override
-    public FaceDto setCoordinates(Double[][] coordinates) {
+    public void setCoordinates(Double[][] coordinates) {
         this.rings = coordinates;
-        return this;
     }
 }
