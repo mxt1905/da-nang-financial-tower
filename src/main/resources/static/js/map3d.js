@@ -150,14 +150,14 @@
               colorMaterial: [192, 192, 192],
             },
           },
-//          {
-//            fileLink: '/floor_roof_c',
-//            option: {
-//              size: 1,
-//              colorMaterial: [248, 248, 255],
-//              haveOutline: false,
-//            },
-//          },
+          {
+            fileLink: '/floor_roof_c',
+            option: {
+              size: 1,
+              colorMaterial: [248, 248, 255],
+              haveOutline: false,
+            },
+          },
           {
             fileLink: '/floor_4',
             option: {
@@ -181,16 +181,16 @@
           },
         ];
 
-//        const lineFileList = [
-//          {
-//            fileLink: '/line_columns',
-//            option: { width: 0.4 },
-//          },
-//          {
-//            fileLink: '/line',
-//            option: { width: 0.3 },
-//          },
-//        ];
+        const lineFileList = [
+          {
+            fileLink: '/line_columns',
+            option: { width: 0.4 },
+          },
+          {
+            fileLink: '/line',
+            option: { width: 0.3 },
+          },
+        ];
         // Vẽ nền
         polygonFileList.forEach((polygon) => {
           esriRequest(host + "/api/body/" + polygon.fileLink, json_options).then(function (response) {
@@ -203,18 +203,18 @@
           });
         });
 
-        //Vẽ line
-//        lineFileList.forEach((line) => {
-//          esriRequest(host + line.fileLink, json_options).then(function (response) {
-//            var graphicsLayer = new GraphicsLayer();
-//            console.log(response);
-//            response.data.forEach(function (data) {
-//              graphicsLayer.add(createGraphicLine(data, line.option));
-//            });
-//            map.add(graphicsLayer);
-//          });
-//        });
-//
+        // Vẽ line
+        lineFileList.forEach((line) => {
+          esriRequest(host + "/api/body/" + line.fileLink, json_options).then(function (response) {
+            var graphicsLayer = new GraphicsLayer();
+            console.log(response);
+            response.data.forEach(function (data) {
+              graphicsLayer.add(createGraphicLine(data, line.option));
+            });
+            map.add(graphicsLayer);
+          });
+        });
+
         // Vẽ kính
         esriRequest(host + '/api/body/floor_5_34_glass', json_options).then(
           function (response) {
