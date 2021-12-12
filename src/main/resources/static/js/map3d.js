@@ -5,13 +5,21 @@ require([
     'esri/layers/GraphicsLayer',
     'esri/Graphic',
     'esri/request',
+    'esri/widgets/Slice',
+    'esri/widgets/Slice/SlicePlane',
+    'esri/widgets/LayerList',
+    'esri/core/Collection'
 ], function (
     Map,
     SceneView,
     SceneLayer,
     GraphicsLayer,
     Graphic,
-    esriRequest
+    esriRequest,
+    Slice,
+    SlicePlane,
+    LayerList,
+    Collection
 ) {
     const host = 'http://localhost:8080'
     const createGraphicPolygon = (data,{ size, colorMaterial, haveOutline = true, haveEdges = false }) => {
@@ -241,4 +249,79 @@ require([
     });
 
     view.popup.defaultPopupTemplateEnabled = true;
+
+    const slice = new Slice({
+        view: view
+    });
+
+    view.ui.add(slice, {
+        position: "top-right"
+    });
+
+    const excludedLayers = [];
+    const sliceButton = document.getElementById("slice");
+    const resetPlaneBtn = document.getElementById("reset-plane-btn");
+    const clearPlaneBtn = document.getElementById("clear-plane-btn");
+    const sliceOptions = document.getElementById("slice-option");
+    const plane = new SlicePlane({
+        position: {
+			latitude: 16.071764175013556,
+			longitude: 108.22288513183594,
+            z: 417.75
+        },
+        tilt: 32.62,
+        width: 29,
+        height: 29,
+        heading: 0.46
+    });
+
+    let sliceWidget = null;
+    let doorsLayer = null;
+    let sliceTiltEnabled = true;
+
+    view.ui.add("menu", "top-right");
+
+
+    resetPlaneBtn.addEventListener("click", () => {
+        document.getElementById("tilt-enabled").checked = true;
+        sliceTiltEnabled = true;
+        sliceWidget.viewModel.tiltEnabled = sliceTiltEnabled;
+        sliceWidget.viewModel.shape = plane;
+    });
+
+    clearPlaneBtn.addEventListener("click", () => {
+        // sliceWidget.viewModel.clear();
+        slice.clear();
+    });
+
+    document.getElementById("tilt-enabled")
+    .addEventListener("change", (event) => {
+        sliceTiltEnabled = event.target.checked;
+        sliceWidget.viewModel.tiltEnabled = sliceTiltEnabled;
+    });
+
+    document.getElementById("color").addEventListener("change", (event) => {
+        if (event.target.checked) {
+            // A renderer can be set on a BuildingComponentSublayer
+            doorsLayer.renderer = {
+                type: "simple", // autocasts as new UniqueValueRenderer()
+                symbol: {
+                    type: "mesh-3d", // autocasts as new MeshSymbol3D()
+                    symbolLayers: [{
+                        type: "fill", // autocasts as new FillSymbol3DLayer()
+                        material: {
+                            color: "red"
+                        }
+                    }]
+                }
+            };
+        } else {
+            doorsLayer.renderer = null;
+        }
+    });
+
+    const layerList = new LayerList({
+        view: view
+    });
+
 });
