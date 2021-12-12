@@ -17,12 +17,12 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * UserPrincipleService
+ * UserPrincipalService
  */
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class UserPrincipleService implements UserDetailsService {
+public class UserPrincipalService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -30,6 +30,7 @@ public class UserPrincipleService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username)
         throws UsernameNotFoundException {
+        log.info("User service called");
         Optional<UserEntity> optional = userRepository.findByUsername(username);
         if (optional.isEmpty())
             throw new UsernameNotFoundException("Username not found");
@@ -37,7 +38,7 @@ public class UserPrincipleService implements UserDetailsService {
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         user.getRole().getPermissions().forEach(permission -> grantedAuthorities
             .add(new SimpleGrantedAuthority(permission.getId().name())));
-        return new UserPrinciple(
+        return new UserPrincipal(
             user.getUsername(),
             passwordEncoder.encode(user.getPassword()),
             grantedAuthorities,

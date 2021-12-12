@@ -8,10 +8,10 @@ import java.util.Collection;
 import java.util.Set;
 
 /**
- * UserPrinciple
+ * UserPrincipal
  */
-public class UserPrinciple implements UserDetails {
-    
+public class UserPrincipal implements UserDetails {
+
     private final UserEntity user = new UserEntity();
     private final Set<? extends GrantedAuthority> grantedAuthorities;
     private final boolean isAccountNonExpired;
@@ -19,7 +19,7 @@ public class UserPrinciple implements UserDetails {
     private final boolean isCredentialsNonExpired;
     private final boolean isEnabled;
 
-    public UserPrinciple(String username,
+    public UserPrincipal(String username,
         String password,
         Set<? extends GrantedAuthority> grantedAuthorities,
         boolean isAccountNonExpired,

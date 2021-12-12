@@ -1,7 +1,7 @@
 package com.uit.danangfinancialtower.config;
 
 import com.uit.danangfinancialtower.constants.SecurityConst;
-import com.uit.danangfinancialtower.data.UserPrincipleService;
+import com.uit.danangfinancialtower.data.UserPrincipalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,9 +27,8 @@ import java.util.concurrent.TimeUnit;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
-    private final UserPrincipleService userPrincipleService;
-
-
+    private final UserPrincipalService userPrincipalService;
+    
     @Override
     public void configure(WebSecurity web) {
         web.ignoring()
@@ -78,7 +77,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(passwordEncoder);
-        provider.setUserDetailsService(userPrincipleService);
+        provider.setUserDetailsService(userPrincipalService);
         return provider;
     }
 }
