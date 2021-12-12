@@ -21,7 +21,6 @@ public final class TableConst {
         public static final String SYMBOL_TYPE = "symbol_type";
         public static final String SYMBOL_COLOR = "symbol_color";
         public static final String BODY = "body";
-        public static final String BODY_FACE = "body_face";
     }
 
 

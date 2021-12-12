@@ -1,5 +1,6 @@
 package com.uit.danangfinancialtower.mapper.impl;
 
+import com.uit.danangfinancialtower.constants.ArcgisConst.Type;
 import com.uit.danangfinancialtower.dto.FaceDto;
 import com.uit.danangfinancialtower.dto.FacePolygonDto;
 import com.uit.danangfinancialtower.dto.FacePolylineDto;
@@ -35,17 +36,10 @@ public class FaceDtoMapperImpl implements FaceDtoMapper {
         for (int i = 0; i < length; i++)
             coordinates[i] = nodeDtoMapper.toDtoArray(entity.getNodes().get(i));
         FaceDto dto;
-        //        if (entity.getType().getTypeName().equals("polygon")) {
-        //            dto = new FacePolygonDto();
-        //        } else if (entity.getType().getTypeName().equals("polyline")) {
-        //            dto = new FacePolylineDto();
-        //        }
-
-        if ("polyline".equals(entity.getType().getTypeName())) {
+        if (Type.POLYLINE.equals(entity.getType().getTypeName()))
             dto = new FacePolylineDto();
-        } else {
+        else
             dto = new FacePolygonDto();
-        }
         dto.setType(entity.getType().getTypeName())
             .setSymbol(symbolDtoMapper.toDto(entity.getSymbol()))
             .setCoordinates(coordinates);
