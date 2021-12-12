@@ -21,6 +21,7 @@ public final class TableConst {
         public static final String SYMBOL_TYPE = "symbol_type";
         public static final String SYMBOL_COLOR = "symbol_color";
         public static final String BODY = "body";
+        public static final String BUILDING = "building";
     }
 
 
@@ -36,5 +37,6 @@ public final class TableConst {
         public static final String SYMBOL_TYPE_ID = "symbol_type_id";
         public static final String SYMBOL_COLOR_ID = "symbol_color_id";
         public static final String BODY_ID = "body_id";
+        public static final String BUILDING_ID = "building_id";
     }
 }
