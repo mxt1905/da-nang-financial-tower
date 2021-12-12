@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5 ">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -40,6 +42,13 @@
                                 <span class="sr-only">(current)
                                 </span></a>
                         </li>
+                        <li sec:authorize="hasAuthority('ACCOUNTS_VIEW')" class="nav-item">
+                            <a class="nav-link"
+                               href="#"
+                               tabindex="-1"
+                               aria-disabled="true">Quản lý tài khoản
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="map">Bản đồ 3D
                             </a>
@@ -60,10 +69,16 @@
                                aria-disabled="true">Sự kiện
                             </a>
                         </li>
+
                     </ul>
-                    <a href="login" class="btn my-button my-2 my-sm-0">
+                    <a sec:authorize="!isAuthenticated()" href="login"
+                       class="btn my-button my-2 my-sm-0">
                         Đăng nhập
                     </a>
+                    <form sec:authorize="isAuthenticated()" class="form-signin" method="get"
+                          action="/logout">
+                        <button class="btn my-button my-2 my-sm-0" type="submit">Đăng xuất</button>
+                    </form>
                 </div>
             </nav>
         </div>

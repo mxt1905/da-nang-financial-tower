@@ -1,28 +1,27 @@
-html,
-body {
-height: 100%;
-width: 100%;
+html, body {
+    height: 100%;
+    width: 100%;
 }
 
 .btn-login {
-background-color: #012535;
-color: #ffffff;
+    background-color: #012535;
+    color: #ffffff;
 }
 
 .btn-login:hover {
-background-color: #003044;
-color: #ffffff;
+    background-color: #003044;
+    color: #ffffff;
 }
 
 .img-login {
-background-image: url(../images/da-nang/toa-nha-dn.jpg);
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
+    background-image: url(../images/da-nang/toa-nha-dn.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media only screen and (max-width: 1025px) {
-.reponsive-img-login {
-  display: none;
-}
+    .reponsive-img-login {
+        display: none;
+    }
 }

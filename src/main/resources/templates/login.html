@@ -47,6 +47,7 @@
             align-items-center
             p-0">
             <form class="d-flex flex-column align-items-center m-5"
+                  method="post" action="/login"
                   style="width: 80%">
                 <a href="/">
                     <img src="images/logo-dn.png"
@@ -54,18 +55,21 @@
                 </a>
                 <h1>Đăng nhập</h1>
                 <div class="form-group w-100">
-                    <label for="exampleInputEmail1">Tên đăng nhập</label>
-                    <input type="email"
+                    <label for="username">Tên đăng nhập</label>
+                    <input type="text"
                            class="form-control"
-                           id="exampleInputEmail1"
+                           id="username"
+                           name="username"
                            aria-describedby="emailHelp"
+                           required="" autofocus=""
                            placeholder="Tên đăng nhập"/>
                 </div>
                 <div class="form-group w-100">
-                    <label for="exampleInputPassword1">Mật khẩu</label>
+                    <label for="password">Mật khẩu</label>
                     <input type="password"
                            class="form-control"
-                           id="exampleInputPassword1"
+                           id="password"
+                           name="password"
                            placeholder="Mật khẩu"/>
                 </div>
                 <button type="submit" class="btn btn-login w-100">Đăng nhập</button>

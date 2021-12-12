@@ -5,6 +5,6 @@ package com.uit.danangfinancialtower.constants.enums;
  */
 public enum Role {
 
-    GUEST,
+    USER,
     ADMIN,
 }

@@ -6,5 +6,8 @@ package com.uit.danangfinancialtower.constants.enums;
 public enum Permission {
 
     ACCOUNTS_VIEW,
-    EVENT_CREATE
+    BUILDING_DELETE,
+    APPOINTMENT_CREATE,
+    APPOINTMENT_VIEW,
+    EVENT_CREATE,
 }
