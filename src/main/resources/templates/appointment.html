@@ -35,18 +35,27 @@
                         <li class="nav-item active">
                             <a class="nav-link nav-link-active" href="/">Trang chủ </a>
                         </li>
-
+                        <li sec:authorize="hasAuthority('ACCOUNTS_VIEW')" class="nav-item">
+                            <a class="nav-link"
+                               href="/account"
+                               tabindex="-1"
+                               aria-disabled="true">Quản lý tài khoản
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="map">Bản đồ 3D</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-active" href="appointment"
-                               tabindex="-1" aria-disabled="true">Lịch hẹn</a>
+                        <li sec:authorize="hasAuthority('APPOINTMENT_VIEW')" class="nav-item">
+                            <a class="nav-link"
+                               href="appointment"
+                               tabindex="-1"
+                               aria-disabled="true">Lịch hẹn
+                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/event.html" tabindex="-1"
+                            <a class="nav-link" href="event" tabindex="-1"
                                aria-disabled="true">Sự kiện</a>
                         </li>
                     </ul>
@@ -76,7 +85,7 @@
               align-items: center;
               padding: 16px;">
                 <h1 style="color: #ffffff; font-size: 5vw; text-align: center" class="m-3">
-                    SỰ KIỆN
+                    LỊCH HẸN
                 </h1>
             </div>
         </div>

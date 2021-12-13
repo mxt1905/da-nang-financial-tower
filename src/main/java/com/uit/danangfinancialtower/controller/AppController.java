@@ -37,4 +37,11 @@ public class AppController {
         mav.setViewName("map3d");
         return mav;
     }
+
+    @RequestMapping("/event")
+    public ModelAndView eventPage() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("event");
+        return mav;
+    }
 }

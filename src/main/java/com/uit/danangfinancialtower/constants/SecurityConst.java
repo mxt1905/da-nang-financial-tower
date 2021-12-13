@@ -13,4 +13,5 @@ public final class SecurityConst {
     public static final Integer TOKEN_VALIDATION_DURATION = 21;
     public static final String TOKEN_VALIDATION_KEY = "somethingverysecured";
     public static final String DEFAULT_LOGOUT_SUCCESS_URL = "/login";
+    public static final Integer BCRYPT_STRENGTH = 10;
 }

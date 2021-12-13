@@ -13,7 +13,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-background: #555;
+    background: #555;
 }
 
 /* Style  */
@@ -47,15 +47,6 @@ background: #555;
 
 .nav-link-active {
     color: #ffffff !important;
-}
-
-.tab-link {
-    color: #001119 !important;
-}
-
-.tab-link.active {
-    color: #ffffff !important;
-    background-color: #012535 !important;
 }
 
 .my-button {
