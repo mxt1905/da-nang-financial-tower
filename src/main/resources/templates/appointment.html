@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5 ">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tòa nhà hành chính Đà Nẵng</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous"/>
+    <link rel="icon" href="images/logo-dn.png"/>
+    <link rel="stylesheet" href="css/appointment.css">
+</head>
+<body>
+<div class="container-fluid p-0">
+    <div class="row w-100 m-0" style="background-color: #012535">
+        <div class="col-sm-12 p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark-cover"
+                 style="padding: 0.5rem 4rem">
+                <a class="navbar-brand" href="/"><img src="images/logo-dn.png"
+                                                      style="width: 48px; border-radius: 50%"/></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link nav-link-active" href="/">Trang chủ </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="map">Bản đồ 3D</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-active" href="appointment"
+                               tabindex="-1" aria-disabled="true">Lịch hẹn</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/event.html" tabindex="-1"
+                               aria-disabled="true">Sự kiện</a>
+                        </li>
+                    </ul>
+                    <a sec:authorize="!isAuthenticated()" href="login"
+                       class="btn my-button my-2 my-sm-0">
+                        Đăng nhập
+                    </a>
+                    <div sec:authorize="isAuthenticated()">
+                        Welcome <b><span sec:authentication="name">Username</span></b>
+                        &nbsp;
+                    </div>
+                    <form sec:authorize="isAuthenticated()" class="form-signin" method="get"
+                          action="/logout">
+                        <button class="btn my-button my-2 my-sm-0" type="submit">Đăng xuất</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row p-0 m-0 justify-content-center">
+        <div class="img-cover">
+            <div class="filter-img-cover" style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              padding: 16px;">
+                <h1 style="color: #ffffff; font-size: 5vw; text-align: center" class="m-3">
+                    SỰ KIỆN
+                </h1>
+            </div>
+        </div>
+        <div class="
+            p-5
+            d-flex
+            flex-column
+            align-items-center
+            justify-content-center">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link tab-link active" id="list-appointment-tab" data-toggle="tab"
+                       href="#list-appointment"
+                       role="tab" aria-controls="home" aria-selected="true">Lịch đã đặt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link tab-link" id="make-appointment-tab" data-toggle="tab"
+                       href="#make-appointment" role="tab"
+                       aria-controls="profile" aria-selected="false">Đặt lịch</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent" style="width: 100% !important">
+                <div class="tab-pane fade show active" id="list-appointment" role="tabpanel"
+                     aria-labelledby="list-appointment-tab">
+                    <div class="">
+                        <h1 class="text-center p-2">Danh sách các cuộc hẹn đã đặt</h1>
+                        <table class="table table-striped" style="min-width: 75vw; margin: auto">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="make-appointment" role="tabpanel"
+                     aria-labelledby="make-appointment-tab">
+                    <div style="max-width: 500px">
+                        <h1 class="text-center p-2">
+                            Hãy điền đầy đủ thông tin bên dưới để đặt lịch hẹn
+                        </h1>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail4"
+                                           placeholder="Email"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword4"
+                                           placeholder="Password"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAddress">Address</label>
+                                <input type="text" class="form-control" id="inputAddress"
+                                       placeholder="1234 Main St"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAddress2">Address 2</label>
+                                <input type="text" class="form-control" id="inputAddress2"
+                                       placeholder="Apartment, studio, or floor"/>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">City</label>
+                                    <input type="text" class="form-control" id="inputCity"/>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputState">State</label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="inputZip">Zip</label>
+                                    <input type="text" class="form-control" id="inputZip"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck"/>
+                                    <label class="form-check-label" for="gridCheck">
+                                        Check me out
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="
+          container-fluid
+          m-0
+          d-flex
+          flex-column
+          align-items-center
+          text-white
+          p-0
+        " style="background-color: #001119">
+        <div class="row mt-4">
+            <img src="images/logo-dn.png" style="border-radius: 50%; width: 75px"/>
+        </div>
+        <div class="row m-4 w-75">
+            <div class="col-lg-6">
+                <h4>Lorem ipsum</h4>
+                <hr style="background-color: #ffffff"/>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                    aliquid dolorem nisi illo quis voluptatibus, tempora quaerat ab
+                    excepturi recusandae.
+                </p>
+                <img src="images/facebook-logo.png" style="width: 32px" class="m-1"/>
+                <img src="images/instagram-logo.png" style="width: 32px" class="m-1"/>
+                <img src="images/youtube-logo.png" style="width: 32px" class="m-1"/>
+                <img src="images/twitter-logo.png" style="width: 32px" class="m-1"/>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Lorem ipsum</h4>
+                        <hr style="background-color: #ffffff"/>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                            ab excepturi recusandae.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Lorem ipsum</h4>
+                        <hr style="background-color: #ffffff"/>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                            ab excepturi recusandae.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Lorem ipsum</h4>
+                        <hr style="background-color: #ffffff"/>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+                            ab excepturi recusandae.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row w-100" style="background-color: #012535">
+            <p class="w-100 text-center m-0 p-2">
+                © Copyright by 4T team <br/>_ School Project _
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

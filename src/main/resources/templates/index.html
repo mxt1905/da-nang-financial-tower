@@ -44,7 +44,7 @@
                         </li>
                         <li sec:authorize="hasAuthority('ACCOUNTS_VIEW')" class="nav-item">
                             <a class="nav-link"
-                               href="#"
+                               href="/account"
                                tabindex="-1"
                                aria-disabled="true">Quản lý tài khoản
                             </a>
@@ -54,11 +54,11 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        <li sec:authorize="hasAuthority('APPOINTMENT_VIEW')" class="nav-item">
                             <a class="nav-link"
-                               href="/appointment.html"
+                               href="appointment"
                                tabindex="-1"
-                               aria-disabled="true">Đặt lịch hẹn
+                               aria-disabled="true">Lịch hẹn
                             </a>
                         </li>
 
@@ -75,6 +75,10 @@
                        class="btn my-button my-2 my-sm-0">
                         Đăng nhập
                     </a>
+                    <div sec:authorize="isAuthenticated()">
+                        Welcome <b><span sec:authentication="name">Username</span></b>
+                        &nbsp;
+                    </div>
                     <form sec:authorize="isAuthenticated()" class="form-signin" method="get"
                           action="/logout">
                         <button class="btn my-button my-2 my-sm-0" type="submit">Đăng xuất</button>

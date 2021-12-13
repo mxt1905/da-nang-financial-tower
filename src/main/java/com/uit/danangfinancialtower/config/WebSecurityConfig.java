@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
     private final UserPrincipalService userPrincipalService;
-    
+
     @Override
     public void configure(WebSecurity web) {
         web.ignoring()

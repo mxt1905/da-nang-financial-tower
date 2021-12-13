@@ -1,0 +1,101 @@
+    /* Style for scrollbar */
+    /* width */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* Style  */
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box !important;
+    }
+
+    .img-cover {
+      background: url(../images/da-nang/da-nang-4.jpg);
+      width: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .filter-img-cover {
+      background-color: #001119be;
+      width: 100%;
+      height: 100%;
+    }
+
+    .bg-dark-cover {
+      background-color: #0011190e !important;
+    }
+
+    .nav-link {
+      color: #ffffffb2 !important;
+    }
+
+    .nav-link-active {
+      color: #ffffff !important;
+    }
+
+    .tab-link {
+      color: #001119 !important;
+    }
+
+    .tab-link.active {
+      color: #ffffff !important;
+      background-color: #012535 !important;
+    }
+
+    .my-button {
+      color: #ffffff !important;
+      border: 2px solid #ffffff;
+      border-radius: 0px;
+      background-color: #00111900;
+    }
+
+    .my-button:hover {
+      color: #ffffff !important;
+      background-color: #00111998 !important;
+    }
+
+    .card {
+      border: 0px solid #001119;
+      padding: 2rem;
+      margin: 1rem;
+      max-width: 250px;
+      border: 2px solid #00111911;
+    }
+
+    .card:hover {
+      cursor: pointer;
+      border: 2px solid #001119;
+    }
+
+    .my-card {
+      border: 2px solid #012535;
+      border-radius: 8px;
+    }
+
+    .my-card:hover {
+      cursor: pointer;
+      box-shadow: 0px 0px 5px #001119c4;
+    }
+
+    .text-overflow {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
