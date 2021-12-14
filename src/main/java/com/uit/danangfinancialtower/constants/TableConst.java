@@ -26,7 +26,6 @@ public final class TableConst {
         public static final String ROLE = "role";
         public static final String ROLE_PERMISSION = "role_permission";
         public static final String PERMISSION = "permission";
-
     }
 
 

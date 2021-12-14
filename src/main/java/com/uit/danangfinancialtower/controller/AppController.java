@@ -1,5 +1,7 @@
 package com.uit.danangfinancialtower.controller;
 
+import com.uit.danangfinancialtower.service.building.BuildingSearchService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,7 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
  * AppController
  */
 @Controller
+@RequiredArgsConstructor
 public class AppController {
+
+    private final BuildingSearchService buildingSearchService;
 
     @RequestMapping({"/", "/index"})
     public ModelAndView indexPage() {
@@ -32,7 +37,7 @@ public class AppController {
     }
 
     @RequestMapping("/map")
-    public ModelAndView map() {
+    public ModelAndView mapPage() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("map3d");
         return mav;
@@ -42,6 +47,21 @@ public class AppController {
     public ModelAndView eventPage() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("event");
+        return mav;
+    }
+
+    @RequestMapping("/building-list")
+    public ModelAndView buildingListPage() {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("buildings", buildingSearchService.execute());
+        mav.setViewName("building-list");
+        return mav;
+    }
+
+    @RequestMapping("/building/{buildingId}")
+    public ModelAndView buildingPage() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("building");
         return mav;
     }
 }

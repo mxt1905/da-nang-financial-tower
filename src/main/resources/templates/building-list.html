@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5 ">
 <head>
@@ -89,7 +90,7 @@
               align-items: center;
               padding: 16px;">
                 <h1 style="color: #ffffff; font-size: 5vw; text-align: center" class="m-3">
-                    LỊCH HẸN
+                    TOÀ NHÀ
                 </h1>
             </div>
         </div>
@@ -99,111 +100,32 @@
             flex-column
             align-items-center
             justify-content-center">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link tab-link active" id="list-appointment-tab" data-toggle="tab"
-                       href="#list-appointment"
-                       role="tab" aria-controls="home" aria-selected="true">Lịch đã đặt</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link tab-link" id="make-appointment-tab" data-toggle="tab"
-                       href="#make-appointment" role="tab"
-                       aria-controls="profile" aria-selected="false">Đặt lịch</a>
-                </li>
-            </ul>
             <div class="tab-content" id="myTabContent" style="width: 100% !important">
                 <div class="tab-pane fade show active" id="list-appointment" role="tabpanel"
                      aria-labelledby="list-appointment-tab">
                     <div class="">
-                        <h1 class="text-center p-2">Danh sách các cuộc hẹn đã đặt</h1>
+                        <h1 class="text-center p-2">Danh sách các toà nhà</h1>
                         <table class="table table-striped" style="min-width: 75vw; margin: auto">
                             <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Height</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
+                            <tr th:each="building: ${buildings}">
+                                <th th:text="${building.id}" scope="row">1</th>
+                                <td th:text="${building.buildingName}"></td>
+                                <td th:text="${building.buildingAddress}"></td>
+                                <td th:text="${building.buildingDescription}"></td>
+                                <td th:text="${building.buildingHeight}"></td>
+                                <td><a th:href="@{'/building/' + ${building.id}}">Xem 3D</a></td>
                             </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="make-appointment" role="tabpanel"
-                     aria-labelledby="make-appointment-tab">
-                    <div style="max-width: 500px">
-                        <h1 class="text-center p-2">
-                            Hãy điền đầy đủ thông tin bên dưới để đặt lịch hẹn
-                        </h1>
-                        <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4"
-                                           placeholder="Email"/>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Password</label>
-                                    <input type="password" class="form-control" id="inputPassword4"
-                                           placeholder="Password"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAddress">Address</label>
-                                <input type="text" class="form-control" id="inputAddress"
-                                       placeholder="1234 Main St"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAddress2">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2"
-                                       placeholder="Apartment, studio, or floor"/>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputCity">City</label>
-                                    <input type="text" class="form-control" id="inputCity"/>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputState">State</label>
-                                    <select id="inputState" class="form-control">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label for="inputZip">Zip</label>
-                                    <input type="text" class="form-control" id="inputZip"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck"/>
-                                    <label class="form-check-label" for="gridCheck">
-                                        Check me out
-                                    </label>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Sign in</button>
-                        </form>
                     </div>
                 </div>
             </div>

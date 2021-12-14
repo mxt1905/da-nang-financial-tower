@@ -20,6 +20,7 @@ public class NodeDtoMapperImpl implements NodeDtoMapper {
         return new Double[] {
             entity.getX(),
             entity.getY(),
-            entity.getZ()};
+            entity.getZ()
+        };
     }
 }
