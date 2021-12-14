@@ -19,13 +19,9 @@ public class UserPrincipal implements UserDetails {
     private final boolean isCredentialsNonExpired;
     private final boolean isEnabled;
 
-    public UserPrincipal(String username,
-        String password,
-        Set<? extends GrantedAuthority> grantedAuthorities,
-        boolean isAccountNonExpired,
-        boolean isAccountNonLocked,
-        boolean isCredentialsNonExpired,
-        boolean isEnabled) {
+    public UserPrincipal(String username, String password,
+        Set<? extends GrantedAuthority> grantedAuthorities, boolean isAccountNonExpired,
+        boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled) {
         this.user.setUsername(username);
         this.user.setPassword(password);
         this.grantedAuthorities = grantedAuthorities;

@@ -19,7 +19,7 @@ import java.util.List;
 public class FaceEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -33,7 +33,7 @@ public class FaceEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = ColumnName.BODY_ID)
     private BodyEntity body;
-    
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = TableName.NODE_FACE,
