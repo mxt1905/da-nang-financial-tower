@@ -250,7 +250,6 @@ require([
     polygonFileList.forEach((polygon) => {
         esriRequest(host + "/api/body/" + polygon.fileLink, json_options).then(function (response) {
             var graphicsLayer = new GraphicsLayer();
-            console.log(response);
             response.data.forEach(function (data) {
               graphicsLayer.add(createGraphicPolygon(data, polygon.option));
             });
@@ -262,7 +261,6 @@ require([
     lineFileList.forEach((line) => {
         esriRequest(host + "/api/body/" + line.fileLink, json_options).then(function (response) {
             var graphicsLayer = new GraphicsLayer();
-            console.log(response);
             response.data.forEach(function (data) {
               graphicsLayer.add(createGraphicLine(data, line.option));
             });
@@ -274,7 +272,6 @@ require([
     esriRequest(host + '/api/body/floor_5_34_glass', json_options).then(
         function (response) {
             var graphicsLayer = new GraphicsLayer();
-            console.log(response);
             response.data.forEach(function (data) {
               graphicsLayer.add(createGraphicFloor5_34_Glass(data));
             });
