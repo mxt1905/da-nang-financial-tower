@@ -69,6 +69,10 @@
                         Welcome <b><span sec:authentication="name">Username</span></b>
                         &nbsp;
                     </div>
+                    <form sec:authorize="isAuthenticated()" class="form-signin" method="get"
+                          action="/logout">
+                        <button class="btn my-button my-2 my-sm-0" type="submit">Đăng xuất</button>
+                    </form>
                 </div>
             </nav>
         </div>
