@@ -184,6 +184,56 @@ require([
                 colorMaterial: [192, 192, 192, 1],
             },
         },
+
+        {
+            fileLink: '/novotel_body',
+            option: {
+                size: 155,
+                colorMaterial: [34, 165, 205, 1],
+            },
+        },
+        {
+            fileLink: '/novotel_floor_1_4',
+            option: {
+                size: 15,
+                colorMaterial: [192, 192, 192, 1],
+            },
+        },
+        {
+            fileLink: '/novotel_horizontal_edges',
+            option: {
+                size: 0.5,
+                colorMaterial: [192, 192, 192, 1],
+            },
+        },
+        {
+            fileLink: '/novotel_vertical_edges',
+            option: {
+                size: 130,
+                colorMaterial: [192, 192, 192, 1],
+            },
+        },
+        {
+            fileLink: '/novotel_front_back',
+            option: {
+                size: 155,
+                colorMaterial: [220, 123, 38, 1],
+            },
+        },
+        {
+        fileLink: '/novotel_1_5_lines',
+            option: {
+                size: 20,
+                colorMaterial: [192, 192, 192, 1],
+            },
+        },
+        {
+            fileLink: '/novotel_floor_1_5_roof',
+            option: {
+                size: 0.5,
+                colorMaterial: [192, 192, 192, 1],
+            },
+        },
     ];
 
     const lineFileList = [

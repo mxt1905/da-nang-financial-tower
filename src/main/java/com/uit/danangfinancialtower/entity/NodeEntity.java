@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class NodeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Double x;

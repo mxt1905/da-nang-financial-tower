@@ -122,7 +122,9 @@
                                 <td th:text="${building.buildingAddress}"></td>
                                 <td th:text="${building.buildingDescription}"></td>
                                 <td th:text="${building.buildingHeight}"></td>
-                                <td><a th:href="@{'/building/' + ${building.id}}">Xem 3D</a></td>
+                                <td><a th:href="@{'/building/' + ${building.id}}">Xem 3D</a>
+                                    <a sec:authorize="hasAuthority('BUILDING_DELETE')"> | Xoá</a>
+                                </td>
                             </tr>
                             </tbody>
                         </table>

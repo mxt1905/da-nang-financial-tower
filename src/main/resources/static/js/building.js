@@ -203,49 +203,49 @@ require([
 
     const novotelFileList = [
         {
-            fileLink: './novotel/body.json',
+            fileLink: '/novotel_body',
             option: {
                 size: 155,
                 colorMaterial: [34, 165, 205, 1],
             },
         },
         {
-            fileLink: './novotel/floor_1_4.json',
+            fileLink: '/novotel_floor_1_4',
             option: {
                 size: 15,
                 colorMaterial: [192, 192, 192, 1],
             },
         },
         {
-            fileLink: './novotel/horizontal_edges.json',
+            fileLink: '/novotel_horizontal_edges',
             option: {
                 size: 0.5,
                 colorMaterial: [192, 192, 192, 1],
             },
         },
         {
-            fileLink: './novotel/vertical_edges.json',
+            fileLink: '/novotel_vertical_edges',
             option: {
                 size: 130,
                 colorMaterial: [192, 192, 192, 1],
             },
         },
         {
-            fileLink: './novotel/front_back.json',
+            fileLink: '/novotel_front_back',
             option: {
                 size: 155,
                 colorMaterial: [220, 123, 38, 1],
             },
         },
         {
-        fileLink: './novotel/1_5_lines.json',
+        fileLink: '/novotel_1_5_lines',
             option: {
                 size: 20,
                 colorMaterial: [192, 192, 192, 1],
             },
         },
         {
-            fileLink: './novotel/floor_1_5_roof.json',
+            fileLink: '/novotel_floor_1_5_roof',
             option: {
                 size: 0.5,
                 colorMaterial: [192, 192, 192, 1],
@@ -288,7 +288,18 @@ require([
         );
     }
 
-
+    else if (id = 2) {
+        novotelFileList.forEach((polygon) => {
+            esriRequest(host + "/api/body/" + polygon.fileLink, json_options).then(function (response) {
+                var graphicsLayer = new GraphicsLayer();
+                console.log(response);
+                response.data.forEach(function (data) {
+                  graphicsLayer.add(createGraphicPolygon(data, polygon.option));
+                });
+                map.add(graphicsLayer);
+            });
+        });
+    }
 
     const map = new Map({
         basemap: 'topo-vector',
@@ -307,4 +318,79 @@ require([
     });
 
     view.popup.defaultPopupTemplateEnabled = true;
+
+    const slice = new Slice({
+        view: view
+    });
+
+    view.ui.add(slice, {
+        position: "top-right"
+    });
+
+    const excludedLayers = [];
+    const sliceButton = document.getElementById("slice");
+    const resetPlaneBtn = document.getElementById("reset-plane-btn");
+    const clearPlaneBtn = document.getElementById("clear-plane-btn");
+    const sliceOptions = document.getElementById("slice-option");
+    const plane = new SlicePlane({
+        position: {
+			latitude: 16.071764175013556,
+			longitude: 108.22288513183594,
+            z: 417.75
+        },
+        tilt: 32.62,
+        width: 29,
+        height: 29,
+        heading: 0.46
+    });
+
+    let sliceWidget = null;
+    let doorsLayer = null;
+    let sliceTiltEnabled = true;
+
+    view.ui.add("menu", "top-right");
+
+
+    resetPlaneBtn.addEventListener("click", () => {
+        document.getElementById("tilt-enabled").checked = true;
+        sliceTiltEnabled = true;
+        sliceWidget.viewModel.tiltEnabled = sliceTiltEnabled;
+        sliceWidget.viewModel.shape = plane;
+    });
+
+    clearPlaneBtn.addEventListener("click", () => {
+        // sliceWidget.viewModel.clear();
+        slice.clear();
+    });
+
+    document.getElementById("tilt-enabled")
+    .addEventListener("change", (event) => {
+        sliceTiltEnabled = event.target.checked;
+        sliceWidget.viewModel.tiltEnabled = sliceTiltEnabled;
+    });
+
+    document.getElementById("color").addEventListener("change", (event) => {
+        if (event.target.checked) {
+            // A renderer can be set on a BuildingComponentSublayer
+            doorsLayer.renderer = {
+                type: "simple", // autocasts as new UniqueValueRenderer()
+                symbol: {
+                    type: "mesh-3d", // autocasts as new MeshSymbol3D()
+                    symbolLayers: [{
+                        type: "fill", // autocasts as new FillSymbol3DLayer()
+                        material: {
+                            color: "red"
+                        }
+                    }]
+                }
+            };
+        } else {
+            doorsLayer.renderer = null;
+        }
+    });
+
+    const layerList = new LayerList({
+        view: view
+    });
+
 });
