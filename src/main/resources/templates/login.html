@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -71,6 +71,9 @@
                            id="password"
                            name="password"
                            placeholder="Mật khẩu"/>
+                </div>
+                <div th:if="${param.error}">
+                    <p class="text-danger">Tài khoản hoặc mật khẩu không đúng</p>
                 </div>
                 <button type="submit" class="btn btn-login w-100">Đăng nhập</button>
                 <p class="mt-2 text-center">
