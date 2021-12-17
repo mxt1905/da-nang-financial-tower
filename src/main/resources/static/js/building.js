@@ -285,7 +285,7 @@ require([
         );
     }
 
-    else if (id = 2) {
+    else if (id == 2) {
         novotelFileList.forEach((polygon) => {
             esriRequest(host + "/api/body/" + polygon.fileLink, json_options).then(function (response) {
                 var graphicsLayer = new GraphicsLayer();
