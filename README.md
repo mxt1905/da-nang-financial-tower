@@ -29,5 +29,3 @@ Thành viên:
     - Spring Security: Dùng cho việc đăng nhập.
 - Database: PostgreSQL Version 10.
 - Dữ liệu 3D cho đồ án: https://github.com/mxt1905/argics-data
-
-## 3. Chạy project (Updating)
